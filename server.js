@@ -42,6 +42,21 @@ app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 })
 // API ROUTES
+app.get("/api/tables", function(req, res) {
+    return res.json(tables);
+});
+
+// app.get("/api/tables/:table", function(req, res) {
+//     const chosen = req.params.table;
+
+//     console.log(chosen);
+
+
+// })
+
+app.get("/api/waitlist", function(req, res) {
+    return res.json(waitList);
+});
 
 // GET ALL TABLE DATA
 
