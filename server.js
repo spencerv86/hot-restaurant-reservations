@@ -64,30 +64,28 @@ app.get("/api/waitlist", function (req, res) {
 // GET ALL TABLE DATA
 
 // CREATE A TABLE/RESERVATION
-app.post("/api/tables", function(req, res) {
-    var newTable = req.body;
+app.post("/api/tables", function (req, res) {
+    if (tables.length < 5) {
+        var newTable = req.body;
 
+        // newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
 
-    if()
-    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
+        console.log(newTable);
 
-    console.log(newTable);
+        tables.push(newTable);
 
-    tables.push(newTable);
+        res.json(true);
+    } else {
+        var newWaitlist = req.body;
 
-    res.json(newTable);
-});
+        // newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
 
-app.post("/api/waitlist", function (req, res) {
-    var newWaitlist = req.body;
+        console.log(newWaitlist);
 
-    newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
+        waitList.push(newWaitlist);
 
-    console.log(newWaitlist);
-
-    waitList.push(newWaitlist);
-
-    res.json(newWaitlist);
+        res.json(false);
+    }
 });
 
 // LISTEN ON THE PORT
