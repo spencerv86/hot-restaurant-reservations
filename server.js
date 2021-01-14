@@ -64,6 +64,31 @@ app.get("/api/waitlist", function (req, res) {
 // GET ALL TABLE DATA
 
 // CREATE A TABLE/RESERVATION
+app.post("/api/tables", function(req, res) {
+    var newTable = req.body;
+
+
+    if()
+    newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newTable);
+
+    tables.push(newTable);
+
+    res.json(newTable);
+});
+
+app.post("/api/waitlist", function (req, res) {
+    var newWaitlist = req.body;
+
+    newWaitlist.routeName = newWaitlist.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newWaitlist);
+
+    waitList.push(newWaitlist);
+
+    res.json(newWaitlist);
+});
 
 // LISTEN ON THE PORT
 app.listen(PORT, function () {
