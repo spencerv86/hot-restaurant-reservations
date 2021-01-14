@@ -30,9 +30,17 @@ const waitList = [
 
 //HTML ROUTES
 // ROUTE FOR HOME
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "home.html"));
+});
 // ROUTE FOR TABLES
+app.get("/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
 // ROUTE FOR RESERVE
-
+app.get("/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "reserve.html"));
+})
 // API ROUTES
 
 // GET ALL TABLE DATA
